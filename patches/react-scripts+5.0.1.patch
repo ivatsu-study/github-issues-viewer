@@ -1,0 +1,21 @@
+diff --git a/node_modules/react-scripts/config/webpack.config.js b/node_modules/react-scripts/config/webpack.config.js
+index e465d8e..7f1d4b7 100644
+--- a/node_modules/react-scripts/config/webpack.config.js
++++ b/node_modules/react-scripts/config/webpack.config.js
+@@ -307,6 +307,16 @@ module.exports = function (webpackEnv) {
+       // We placed these paths second because we want `node_modules` to "win"
+       // if there are any conflicts. This matches Node resolution mechanism.
+       // https://github.com/facebook/create-react-app/issues/253
++      fallback: { 
++        "querystring": require.resolve("querystring-es3") ,
++        "path": require.resolve("path-browserify"),
++        "buffer": require.resolve("buffer/"),
++        "crypto": require.resolve("crypto-browserify"),
++        "http": require.resolve("stream-http"),
++        "stream": require.resolve("stream-browserify"),
++        "url": require.resolve("url/"),
++        "util": require.resolve("util/"),
++      },
+       modules: ['node_modules', paths.appNodeModules].concat(
+         modules.additionalModulePaths || []
+       ),
